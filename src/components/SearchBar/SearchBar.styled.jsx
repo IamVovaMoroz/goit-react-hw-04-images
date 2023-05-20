@@ -12,7 +12,7 @@ export const Form = styled.form`
   margin: 10px auto;
   display: flex;
   justify-content: center;
-  background-color: #3c3a3a79;
+  background-color: #37b2d9;
   border: none;
 `;
 

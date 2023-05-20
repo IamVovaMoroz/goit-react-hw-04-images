@@ -21,12 +21,12 @@ export const LoadMoreBtn = styled.button`
   font-weight: 500;
   text-transform: uppercase;
   min-width: 180px;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
-    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
 
   &:hover {
     background-color: #0062cc;
-    border-color: #005cbf;
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05); /* Добавленный эффект приближения */
   }
 
   &:focus {
@@ -36,7 +36,7 @@ export const LoadMoreBtn = styled.button`
 
   &:active {
     background-color: #0062cc;
-    border-color: #005cbf;
     box-shadow: none;
+    transform: scale(1); /* Возврат к исходному размеру при активации кнопки */
   }
 `;
