@@ -1,16 +1,20 @@
 import { GalleryItem, Thumb, Image } from './ImageGalleryItem.styled';
 import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import Modal from 'components/Modal/Modal';
+// export default class ImageGalleryItem extends Component {
 
-import React, { Component } from 'react';
 
-export default class ImageGalleryItem extends Component {
-  onImageClick = () => {
-    const { updateImglink, openModal, largeImageURL } = this.props;
-    updateImglink(largeImageURL);
-    openModal();
-  };
-  render() {
-    const { alt, src } = this.props;
+export default function ImageGalleryItem({src, alt, largeImageURL}) {
+// создаём set для модалки
+const [isModalOpen, setIsModalOpen] = useState(false);
+
+// переключатель на модалке , обратное делает значение. На открытие и на закрытие модалки
+const handleToggleModal = () =>{
+  setIsModalOpen(prevState => !prevState);
+
+};
+  
     return (
       <GalleryItem>
         <Thumb>
@@ -18,15 +22,24 @@ export default class ImageGalleryItem extends Component {
             src={src}
             alt={alt}
             loading="lazy"
-            onClick={this.onImageClick}
+            // при клике на изображ, открываем модалку
+            onClick={handleToggleModal}
+            // onClick={this.onImageClick}
           />
         </Thumb>
+   
+        {isModalOpen && <Modal img={largeImageURL} tags={alt}  onClose={handleToggleModal}/>}
       </GalleryItem>
     );
-  }
+  
 }
+// ImageGalleryItem.propTypes = {
+//   updateImglink: PropTypes.func.isRequired,
+//   openModal: PropTypes.func.isRequired,
+//   largeImageURL: PropTypes.string.isRequired,
+// };
 ImageGalleryItem.propTypes = {
-  updateImglink: PropTypes.func.isRequired,
-  openModal: PropTypes.func.isRequired,
+  src: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
   largeImageURL: PropTypes.string.isRequired,
 };
