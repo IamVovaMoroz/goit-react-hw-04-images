@@ -31,11 +31,7 @@ function ImageGallery({ images, openModal, updateImglink }) {
 
 export default ImageGallery;
 
-// ImageGallery.propTypes = {
-//   images: PropTypes.array.isRequired,
-//   openModal: PropTypes.func.isRequired,
-//   updateImglink: PropTypes.func.isRequired,
-// };
+
 ImageGallery.propTypes = {
   images: PropTypes.arrayOf(
     PropTypes.shape({
