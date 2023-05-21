@@ -19,21 +19,37 @@ const [loading, setLoading] = useState(false);
 // const [showBtnLoadMore, setShowBtnLoadMore] = useState(false);
 const [error, setError]  = useState(null);
 
-useEffect(()=>{
-  
 
-  fetchApi(searchQuery, page ).then(data=> {
-    // массив обьектов - console.log(data)
-    // массив картинок console.log(data.hits) передаем в картинки 
-    // console.log(totalHits)  всего результатов передаем в totalHits
-        setImages(prevImages => [...prevImages, ...data.hits] )
-     
-    setTotalHits(data.totalHits)
-    // если ошибка ловим и set в error
-    .catch(error => setError(error))
-  }).finally(setLoading(false))
+//     // массив обьектов - console.log(data)
+//     // массив картинок console.log(data.hits) передаем в картинки 
+//     // console.log(totalHits)  всего результатов передаем в totalHits
+    
+//     setTotalHits(data.totalHits)
+//     // если ошибка ловим и set в error
+//     .catch(error => setError(error))
 
-}, [searchQuery, page])
+
+
+useEffect(() => {
+  if (!searchQuery) {
+    return;
+  }
+  fetchApi(searchQuery, page)
+    .then(data => {
+      setImages(prevImages => [...prevImages, ...data.hits]);
+      setTotalHits(data.totalHits);
+    })
+    .catch(error => {
+      setError(error);
+    })
+    .finally(() => {
+      setLoading(false);
+    });
+}, [searchQuery, page]);
+
+
+
+
 
 
 const handleSubmitForm = query => {
