@@ -95,6 +95,7 @@ const handleSubmitForm = query => {
                 // openModal={this.openModal}
                 // updateImglink={this.updateImglink}
 />
+{/* выводим сообщение только если  пустой массив, запрос отправлен и нет загрузки */}
 {querySubmitted && images.length === 0 &&  !loading && (
         <TextWarning>No images available for your request</TextWarning>
       )}
