@@ -39,6 +39,10 @@ useEffect(() => {
     .then(data => {
       setImages(prevImages => [...prevImages, ...data.hits]);
       setTotalHits(data.totalHits);
+       // Проверка наличия изображений после получения ответа
+      if (data.hits.length === 0) {
+        setQuerySubmitted(true);
+      }
     })
     .catch(error => {
       setError(error);
@@ -91,7 +95,7 @@ const handleSubmitForm = query => {
                 // openModal={this.openModal}
                 // updateImglink={this.updateImglink}
 />
-{querySubmitted && images.length === 0 && (
+{querySubmitted && images.length === 0 &&  !loading && (
         <TextWarning>No images available for your request</TextWarning>
       )}
             {images.length > 0 && images.length !== totalHits && (
