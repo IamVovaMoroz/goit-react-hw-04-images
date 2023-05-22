@@ -38,9 +38,7 @@ export const ImageNotFound = styled.img`
     animation-play-state: paused;
     
   }
-  &:active {
-    transform: scale(0.9); /* Уменьшение размера при нажатии */
-  }
+ 
 
 
 `;
