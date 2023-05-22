@@ -17,7 +17,7 @@ export const ImageNotFound = styled.img`
   max-width: 100%;
   height: auto;
   opacity: 0.7;
-  filter: grayscale(100%);
+
 
 
 
