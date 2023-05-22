@@ -28,6 +28,7 @@ export const ImageNotFound = styled.img`
 
   &:hover {
     transform: scale(1.07); /* Увеличение размера при наведении */
+    cursor: pointer;
   }
 
   &:active {

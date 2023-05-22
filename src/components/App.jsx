@@ -97,7 +97,7 @@ const handleSubmitForm = query => {
 />
 {/* выводим сообщение только если  пустой массив, запрос отправлен и нет загрузки */}
 {querySubmitted && images.length === 0 &&  !loading && (
-       <BlockWarning> <TextWarning>No images available for your request</TextWarning>
+       <BlockWarning> <TextWarning>Here are no images available for your request, but you can still click below.</TextWarning>
        <ImageNotFound
        src="https://i.pinimg.com/564x/44/8b/70/448b7040d44cfc0a620c03c63df26680.jpg"
        alt="Image not found"
