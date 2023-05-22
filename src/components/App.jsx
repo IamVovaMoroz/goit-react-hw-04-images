@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { ToastContainer} from 'react-toastify';
-import { Container, TextWarning } from './App.styled';
+import { Container, TextWarning, ImageNotFound, BlockWarning } from './App.styled';
 import SearchBar from './SearchBar/SearchBar';
 import ImageGallery from './ImageGallery/ImageGallery';
 import Spinner from './Loader/Loader';
@@ -97,7 +97,12 @@ const handleSubmitForm = query => {
 />
 {/* выводим сообщение только если  пустой массив, запрос отправлен и нет загрузки */}
 {querySubmitted && images.length === 0 &&  !loading && (
-        <TextWarning>No images available for your request</TextWarning>
+       <BlockWarning> <TextWarning>No images available for your request</TextWarning>
+       <ImageNotFound
+       src="https://i.pinimg.com/564x/44/8b/70/448b7040d44cfc0a620c03c63df26680.jpg"
+       alt="Image not found"
+     /></BlockWarning>
+        
       )}
             {images.length > 0 && images.length !== totalHits && (
             
