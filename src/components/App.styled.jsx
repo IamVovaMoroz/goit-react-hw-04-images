@@ -27,7 +27,7 @@ export const ImageNotFound = styled.img`
   background-color: #37b2d9;
 
   &:hover {
-    transform: scale(1); /* Увеличение размера при наведении */
+    transform: scale(1.07); /* Увеличение размера при наведении */
   }
 
   &:active {
