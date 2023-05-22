@@ -17,30 +17,22 @@ export const ImageNotFound = styled.img`
   max-width: 100%;
   height: auto;
   opacity: 0.7;
+  scale: 1;
   cursor: pointer;
-  animation: rotate 2s linear infinite;
+  transition: transform 0.3s ease;
 
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   background-color: #37b2d9;
 
-  @keyframes rotate {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-
   &:hover {
-    animation-play-state: paused;
-    
+    transform: scale(1); /* Увеличение размера при наведении */
   }
- 
 
-
+  &:active {
+    transform: scale(0.8); /* Уменьшение размера при нажатии */
+  }
 `;
 
 export const BlockWarning = styled.div`
