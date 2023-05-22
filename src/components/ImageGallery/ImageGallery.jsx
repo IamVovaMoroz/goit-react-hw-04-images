@@ -1,15 +1,15 @@
 import ImageGalleryItem from 'components/ImageGalleryItem/ImageGalleryItem';
 
-import { GalleryList, GalleryText } from './ImageGallery.styled';
+import { GalleryList } from './ImageGallery.styled';
 import PropTypes from 'prop-types';
 
 
 
+
 function ImageGallery({ images, openModal, updateImglink }) {
-  if (images.length === 0) {
-    return <GalleryText>No images available for your request</GalleryText>;
-  }
-  // console.log('картинки з галереї', images);
+ 
+
+ 
   return (
     <GalleryList>
       {images.map(({ id, webformatURL, tags, largeImageURL }) => {

@@ -10,8 +10,3 @@ export const GalleryList = styled.ul`
   list-style: none;
 `;
 
-
-export const GalleryText = styled.h2`
- text-align: center;
- color:#37b2d9;
-`;

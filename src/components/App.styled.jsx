@@ -6,3 +6,9 @@ export const Container = styled.div`
   padding: 15;
   /* background-color: #ade6e6; */
 `;
+
+
+export const TextWarning = styled.h2`
+ text-align: center;
+ color:#37b2d9;
+`;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { ToastContainer} from 'react-toastify';
-import { Container } from './App.styled';
+import { Container, TextWarning } from './App.styled';
 import SearchBar from './SearchBar/SearchBar';
 import ImageGallery from './ImageGallery/ImageGallery';
 import Spinner from './Loader/Loader';
@@ -16,7 +16,8 @@ const [images, setImages] = useState([]);
 const [page, setPage] = useState(1);
 const [totalHits, setTotalHits] = useState(null);
 const [loading, setLoading] = useState(false);
-// const [showBtnLoadMore, setShowBtnLoadMore] = useState(false);
+// Для отслеживания что запрос отправлен пользователем
+const [querySubmitted, setQuerySubmitted] = useState(false);
 const [error, setError]  = useState(null);
 
 
@@ -61,6 +62,8 @@ const handleSubmitForm = query => {
       setPage(1);
       setLoading(true)
       setSearchQuery(query);
+      // изменяем состояние если отправили запрос
+      setQuerySubmitted(true);
     };
   
   
@@ -82,12 +85,15 @@ const handleSubmitForm = query => {
        {error && (
               <h1 style={{ color: 'red', textAlign: 'center' }}>{error.message}</h1>
             )}
+            
         {/* ImageGallery всегда рендерим т.к или пустой массив или массив с изображаениями */}
               <ImageGallery images={images}
                 // openModal={this.openModal}
                 // updateImglink={this.updateImglink}
 />
-           
+{querySubmitted && images.length === 0 && (
+        <TextWarning>No images available for your request</TextWarning>
+      )}
             {images.length > 0 && images.length !== totalHits && (
             
             <LoadMoreButton onClick={loadMore} />
@@ -98,7 +104,7 @@ const handleSubmitForm = query => {
 }
 
 
-
+// тоже самое на class
 
 // export class App extends Component {
 //   state = {
